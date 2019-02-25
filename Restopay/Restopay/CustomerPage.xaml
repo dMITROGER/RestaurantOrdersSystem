@@ -1,0 +1,19 @@
+﻿<Page x:Class="Restopay.CustomerPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Restopay"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="CustomerPage">
+
+    <Grid Background="#FFBDC6DA">
+        <Label Content="Restaurant LOGO" HorizontalAlignment="Left" Margin="270,43,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Showcard Gothic" FontSize="24"/>
+        <Button Content="Go to Menu" HorizontalAlignment="Left" Margin="270,312,0,0" VerticalAlignment="Top" Width="254" Click="ButtonMenu_Click" Height="59" FontSize="24" Background="#FF267CB9" FontWeight="Bold" FontFamily="Showcard Gothic" Foreground="#FFF2F2F5"/>
+        <Image Source ="pack://application:,,,/Images/price.png" HorizontalAlignment="Left" Height="100" Margin="345,147,0,0" VerticalAlignment="Top" Width="109"/>
+        <Image Source ="Images/price.png" HorizontalAlignment="Left" Height="100" Margin="567,147,0,0" VerticalAlignment="Top" Width="109"/>
+        <Image Source ="Images/price.png" HorizontalAlignment="Left" Height="100" Margin="134,147,0,0" VerticalAlignment="Top" Width="109"/>
+
+    </Grid>
+</Page>

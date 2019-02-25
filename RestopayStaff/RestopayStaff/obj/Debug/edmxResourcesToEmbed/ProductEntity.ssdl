@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProductsDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="appetizer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Price" Type="float" Nullable="false" />
+    <Property Name="Quantit" Type="int" />
+    <Property Name="Amount" Type="float" />
+    <Property Name="Category" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ArchivedOrders">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderNumber" Type="bigint" Nullable="false" />
+    <Property Name="DateTime" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Price" Type="float" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+    <Property Name="Amount" Type="float" Nullable="false" />
+    <Property Name="Category" Type="nvarchar" MaxLength="50" />
+    <Property Name="TableNumber" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="beverage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Price" Type="float" Nullable="false" />
+    <Property Name="Quantit" Type="int" />
+    <Property Name="Amount" Type="float" />
+    <Property Name="Category" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="cart">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Price" Type="float" Nullable="false" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Amount" Type="float" />
+    <Property Name="Category" Type="nvarchar" MaxLength="50" />
+    <Property Name="TableNumber" Type="int" Nullable="false" />
+    <Property Name="OrderNumber" Type="bigint" />
+  </EntityType>
+  <EntityType Name="dessert">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Price" Type="float" Nullable="false" />
+    <Property Name="Quantit" Type="int" />
+    <Property Name="Amount" Type="float" />
+    <Property Name="Category" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="mainCourse">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Price" Type="float" Nullable="false" />
+    <Property Name="Quantit" Type="int" />
+    <Property Name="Amount" Type="float" />
+    <Property Name="Category" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="OrdersInProgress">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Price" Type="float" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+    <Property Name="Amount" Type="float" Nullable="false" />
+    <Property Name="Category" Type="nvarchar" MaxLength="50" />
+    <Property Name="TableNumber" Type="int" Nullable="false" />
+    <Property Name="OrderNumber" Type="bigint" Nullable="false" />
+    <Property Name="DateTime" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CookStatus " Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="BartenderStatus " Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="WaiterStatus " Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Function Name="GetNextSequenceValue" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="ProductsDatabaseModelStoreContainer">
+    <EntitySet Name="appetizer" EntityType="Self.appetizer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ArchivedOrders" EntityType="Self.ArchivedOrders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="beverage" EntityType="Self.beverage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cart" EntityType="Self.cart" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="dessert" EntityType="Self.dessert" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mainCourse" EntityType="Self.mainCourse" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrdersInProgress" EntityType="Self.OrdersInProgress" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

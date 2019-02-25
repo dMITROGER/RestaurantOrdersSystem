@@ -1,0 +1,116 @@
+﻿<Page x:Class="Restopay.MenuPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Restopay"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MenuPage" Height="450" Width="800">
+
+    <Grid Background="#FFBDC6DA">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75*"/>
+            <RowDefinition Height="75*"/>
+            <RowDefinition Height="75*"/>
+            <RowDefinition Height="75*"/>
+            <RowDefinition Height="115*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="367*"/>
+            <ColumnDefinition Width="428*"/>
+        </Grid.ColumnDefinitions>
+        <ComboBox x:Name="comboBeverage" HorizontalAlignment="Left" Margin="46,46,0,0" VerticalAlignment="Top" Width="200" FontSize="14" OpacityMask="Black" Background="Black" BorderBrush="{x:Null}" >
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Name}"/>
+                        <TextBlock Text="  $"/>
+                        <TextBlock Text="{Binding Price}" />
+                    </StackPanel>
+
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <ComboBox x:Name="comboAppetizer" HorizontalAlignment="Left" Margin="46,46,0,0" VerticalAlignment="Top" Width="200" Grid.Row="1" FontSize="14">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Name}"/>
+                        <TextBlock Text="  $"/>
+                        <TextBlock Text="{Binding Price}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <ComboBox x:Name="comboMainCourse" HorizontalAlignment="Left" Margin="46,46,0,0" VerticalAlignment="Top" Width="200" Grid.Row="2" FontSize="14">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Name}"/>
+                        <TextBlock Text="  $"/>
+                        <TextBlock Text="{Binding Price}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <ComboBox x:Name="comboDessert" HorizontalAlignment="Left" Margin="46,46,0,0" VerticalAlignment="Top" Width="200" Grid.Row="3" FontSize="14">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Name}"/>
+                        <TextBlock Text="  $"/>
+                        <TextBlock Text="{Binding Price}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <Button x:Name="btnAdd" Content="Add to order" HorizontalAlignment="Left" Margin="224,28.8,0,0" Grid.Row="4" VerticalAlignment="Top" Width="116" Click="ButtonAdd_Click" FontSize="16" FontWeight="Bold" Background="#FF44D133"/>
+        <Button x:Name="btnDelete" Content="Clear order" HorizontalAlignment="Left" Margin="224,71.8,0,0" Grid.Row="4" VerticalAlignment="Top" Width="116" Click="ButtonDelete_Click" FontSize="16" FontWeight="Bold" Background="#FFFB5450"/>
+        <DataGrid x:Name="gridBill" Grid.Column="1"  HorizontalAlignment="Left" Height="268" Margin="9.8,33,0,0" Grid.RowSpan="4" VerticalAlignment="Top" Width="408" SelectedCellsChanged="gridBill_SelectedCellsChanged" FontSize="14" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" Width="*"/>
+                <DataGridTextColumn Header="Price" Binding="{Binding Price}" IsReadOnly="True" Width="60"/>
+                <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}" Width="80"/>
+                <DataGridTextColumn Header="Subtotal" Binding="{Binding Amount}" IsReadOnly="True" Width="80"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="RemoveRaw">X</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+
+        </DataGrid>
+
+
+
+        <TextBox x:Name="txbBeverageQ" PreviewTextInput="NumberValidationTextBox" TextAlignment="Center" HorizontalAlignment="Left" Height="23" Margin="278,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="65" FontSize="14" SelectionBrush="#FF00D710"/>
+        <TextBox x:Name="txbAppetizerQ" PreviewTextInput="NumberValidationTextBox" TextAlignment="Center" HorizontalAlignment="Left" Height="23" Margin="278,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="65" Grid.Row="1" FontSize="14"/>
+        <TextBox x:Name="txbMainCourseQ" PreviewTextInput="NumberValidationTextBox" TextAlignment="Center" HorizontalAlignment="Left" Height="23" Margin="278,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="65" Grid.Row="2" FontSize="14"/>
+        <TextBox x:Name="txbDessertQ" PreviewTextInput="NumberValidationTextBox" TextAlignment="Center" HorizontalAlignment="Left" Height="23" Margin="278,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="65" Grid.Row="3" FontSize="14"/>
+        <TextBlock x:Name="txAmount" Text ="{Binding subtotal, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" TextAlignment="Right" HorizontalAlignment="Left" Margin="92.8,35.8,0,0" Grid.Row="4" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" Background="#FFA8F07F" FontSize="14"/>
+        <TextBlock x:Name="txTax" Text ="{Binding Tax, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" TextAlignment="Right" HorizontalAlignment="Left" Margin="92.8,56.8,0,0" Grid.Row="4" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" Background="#FFA8F07F" FontSize="14"/>
+        <TextBlock x:Name="txTotal" Text ="{Binding Total, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" TextAlignment="Right" HorizontalAlignment="Left" Margin="92.8,77.8,0,0" Grid.Row="4" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" Background="#FFA8F07F" FontWeight="Bold" FontSize="14"/>
+        <Label Content="Subtotal:" Grid.Column="1" HorizontalAlignment="Left" Margin="25.8,30.8,0,0" Grid.Row="4" VerticalAlignment="Top"/>
+        <Label Content="Tax:" Grid.Column="1" HorizontalAlignment="Left" Margin="25.8,50.8,0,0" Grid.Row="4" VerticalAlignment="Top"/>
+        <Label Content="Total:" Grid.Column="1" HorizontalAlignment="Left" Margin="25.8,71.8,0,0" Grid.Row="4" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Content="CAD" Grid.Column="1" HorizontalAlignment="Left" Margin="162.8,29.8,0,0" Grid.Row="4" VerticalAlignment="Top"/>
+        <Label Content="CAD" Grid.Column="1" HorizontalAlignment="Left" Margin="162.8,71.8,0,0" Grid.Row="4" VerticalAlignment="Top"/>
+        <Label Content="CAD" Grid.Column="1" HorizontalAlignment="Left" Margin="162.8,51.8,0,0" Grid.Row="4" VerticalAlignment="Top"/>
+        <Label Content="Quantity:" HorizontalAlignment="Left" Margin="278,17,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Content="Beverage" HorizontalAlignment="Left" Margin="114,17,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Content="Order preview" HorizontalAlignment="Left" Margin="179.8,5,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.Column="1"/>
+        <Label Content="Appetizer" HorizontalAlignment="Left" Margin="112,17,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.Row="1"/>
+        <Label Content="Main Course" HorizontalAlignment="Left" Margin="107,17,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.Row="2"/>
+        <Label Content="Dessert" HorizontalAlignment="Left" Margin="116,17,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.Row="3"/>
+        <Button x:Name="goToCart" Content="Proceed to Cart" HorizontalAlignment="Left" Margin="238.8,70.8,0,0" Grid.Row="4" VerticalAlignment="Top" Width="162" Click="ButtonCart_Click" FontSize="16" FontWeight="Bold" Background="#FF44D133" Grid.Column="1"/>
+
+
+
+
+    </Grid>
+</Page>

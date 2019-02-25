@@ -1,0 +1,20 @@
+﻿<Page x:Class="RestopayStaff.StaffPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:RestopayStaff"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="StaffPage">
+
+    <Grid Background="#FFBDC6DA">
+        <Label Content="Restaurant LOGO" HorizontalAlignment="Left" Margin="282,43,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Showcard Gothic" FontSize="24"/>
+        <Button Content="OWNER" Name ="OWNER" HorizontalAlignment="Left" Margin="69,118,0,0" VerticalAlignment="Top" Width="254" Height="59" FontSize="24" Background="#FF267CB9" FontWeight="Bold" FontFamily="Stencil" Foreground="#FFF2F2F5" RenderTransformOrigin="-0.653,-0.401" Click="OWNER_Click"/>
+        <Button Content="MANAGER" Name ="MANAGER" HorizontalAlignment="Left" Margin="69,227,0,0" VerticalAlignment="Top" Width="254" Height="59" FontSize="24" Background="#FF267CB9" FontWeight="Bold" FontFamily="Stencil" Foreground="#FFF2F2F5" RenderTransformOrigin="-0.653,-0.401" Click="MANAGER_Click"/>
+        <Button Content="DB ADMINISTRATOR" Name ="ADMINISTRATOR" HorizontalAlignment="Left" Margin="69,338,0,0" VerticalAlignment="Top" Width="254" Height="59" FontSize="24" Background="#FF267CB9" FontWeight="Bold" FontFamily="Stencil" Foreground="#FFF2F2F5" RenderTransformOrigin="-0.653,-0.401" Click="ADMINISTRATOR_Click"/>
+        <Button Content="COOK" Name ="COOK" HorizontalAlignment="Left" Margin="465,118,0,0" VerticalAlignment="Top" Width="254" Height="59" FontSize="24" Background="#FF267CB9" FontWeight="Bold" FontFamily="Stencil" Foreground="#FFF2F2F5" RenderTransformOrigin="-0.653,-0.401" Click="COOK_Click"/>
+        <Button Content="BARTENDER" Name ="BARTENDER" HorizontalAlignment="Left" Margin="465,227,0,0" VerticalAlignment="Top" Width="254" Height="59" FontSize="24" Background="#FF267CB9" FontWeight="Bold" FontFamily="Stencil" Foreground="#FFF2F2F5" RenderTransformOrigin="-0.653,-0.401" Click="BARTENDER_Click"/>
+        <Button Content="WAITER" Name ="WAITER" HorizontalAlignment="Left" Margin="465,338,0,0" VerticalAlignment="Top" Width="254" Height="59" FontSize="24" Background="#FF267CB9" FontWeight="Bold" FontFamily="Stencil" Foreground="#FFF2F2F5" RenderTransformOrigin="-0.653,-0.401" Click="WAITER_Click"/>
+    </Grid>
+</Page>

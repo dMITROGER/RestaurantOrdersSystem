@@ -1,0 +1,47 @@
+﻿<Page x:Class="Restopay.CartPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Restopay"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="CartPage">
+
+    <Grid Background="#FFBDC6DA" Margin="0,0,0,-155">
+        <Label Content="CART" FontWeight="Bold" FontFamily="Showcard Gothic" FontSize="18" HorizontalAlignment="Left" Margin="359,10,0,0" VerticalAlignment="Top"/>
+        <DataGrid Background="#FFBDC6DA" x:Name="gridBill"  HorizontalAlignment="Left" Height="268" Margin="186,41,0,0" VerticalAlignment="Top" Width="408" FontSize="14" AutoGenerateColumns="False">
+            <DataGrid.Columns >
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" Width="*"/>
+                <DataGridTextColumn Header="Price,CAD" Binding="{Binding Price}" IsReadOnly="True" Width="80"/>
+                <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}" Width="70"/>
+                <DataGridTextColumn Header="Subtotal,CAD" Binding="{Binding Amount}" IsReadOnly="True" Width="100"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="RemoveRaw">X</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <Button Content="Back" HorizontalAlignment="Left" Margin="186,392,0,0" VerticalAlignment="Top" Width="75" Click="ButtonBackClick"/>
+        <Button Content="Remove all" HorizontalAlignment="Left" Margin="186,340,0,0" VerticalAlignment="Top" Width="75" Click="ButtonRemoveClick"/>
+        <ComboBox SelectedIndex="0" Name ="paymentMethod" HorizontalAlignment="Left" Margin="373,426,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBox.Items>
+                <ComboBoxItem>PayPal</ComboBoxItem>
+                <ComboBoxItem>Credit/Debit Card</ComboBoxItem>
+            </ComboBox.Items>
+        </ComboBox>
+        <Label Content="Payment method :" HorizontalAlignment="Left" Margin="264,423,0,0" VerticalAlignment="Top"/>
+        <Button Content="Pay" Name="Pay" HorizontalAlignment="Left" Margin="519,426,0,0" VerticalAlignment="Top" Width="75" Click="Pay_Click"/>
+        <TextBlock x:Name="txAmount" Text ="{Binding Path = subtotal, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Right" HorizontalAlignment="Left" Margin="522,336,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" Background="#FFA8F07F" FontSize="14"/>
+        <TextBlock x:Name="txTax" Text ="{Binding Tax, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Right" HorizontalAlignment="Left" Margin="522,357,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" Background="#FFA8F07F" FontSize="14"/>
+        <TextBlock x:Name="txTotal" Text ="{Binding Total, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Right" HorizontalAlignment="Left" Margin="522,378,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" Background="#FFA8F07F" FontWeight="Bold" FontSize="14"/>
+        <Label Content="Subtotal:" HorizontalAlignment="Left" Margin="459,333,0,0" VerticalAlignment="Top"/>
+        <Label Content="Tax:" HorizontalAlignment="Left" Margin="459,353,0,0" VerticalAlignment="Top"/>
+        <Label Content="Total:" HorizontalAlignment="Left" Margin="459,374,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+     
+    </Grid>
+</Page>

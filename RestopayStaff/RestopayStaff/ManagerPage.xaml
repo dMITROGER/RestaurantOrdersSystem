@@ -1,0 +1,39 @@
+﻿<Page x:Class="RestopayStaff.ManagerPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:RestopayStaff"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ManagerPage">
+
+    <Grid Background="#FFBDC6DA">
+        <Label Content="MANAGER PAGE" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Showcard Gothic" FontSize="14"/>
+        <DataGrid Background="#FFBDC6DA" x:Name="grid"  HorizontalAlignment="Left" Height="364" Margin="0,76,0,0" VerticalAlignment="Top" Width="800" AutoGenerateColumns="False" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Order #" Binding="{Binding OrderNumber}" IsReadOnly="True" Width="60"/>
+                <DataGridTextColumn Header="Date" Binding="{Binding DateTime}" IsReadOnly="True" Width="170"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" Width="170"/>
+                <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}" Width="70"/>
+                <DataGridTextColumn Header="Table #" Binding="{Binding TableNumber}" IsReadOnly="True" Width="60"/>
+                <DataGridTextColumn Header="CookStatus" Binding="{Binding CookStatus_}" IsReadOnly="True" Width="80"/>
+                <DataGridTextColumn Header="BartenderStatus" Binding="{Binding BartenderStatus_}" IsReadOnly="True" Width="80"/>
+                <DataGridTemplateColumn Header="Change Status" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="RemoveRaw">COMPLETE</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+
+        </DataGrid>
+
+        <Button Content="Update" HorizontalAlignment="Left" Margin="623,12,0,0" VerticalAlignment="Top" Width="167" Click="Button_Click" FontSize="14" Background="#FFA9DF3C"/>
+        <Button Content="Exit" HorizontalAlignment="Left" Margin="147,12,0,0" VerticalAlignment="Top" Width="75" Click="ButtonExitClick" FontSize="14" Background="#FFF24A36"/>
+        <Button x:Name="ArchidedOrders" Content="Archided Orders" HorizontalAlignment="Left" Margin="363,12,0,0" VerticalAlignment="Top" Width="154" FontSize="14" Click="ArchidedOrders_Click" Background="#FFE87F7F" />
+        <Button Content="Menu" HorizontalAlignment="Left" Margin="254,12,0,0" VerticalAlignment="Top" Width="75" Click="ButtonMenuClick" FontSize="14" Background="#FFE6F094" />
+        <Label Content="Active orders" HorizontalAlignment="Left" Margin="345,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.692,-0.152" FontWeight="Bold" FontSize="16"/>
+    </Grid>
+</Page>
